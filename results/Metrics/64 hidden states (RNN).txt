@@ -1,0 +1,25 @@
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1> python rnn.py --hidden_dim 64 --epochs 10 --train_data training.json --val_data validation.json --test_data test.json
+========== Loading data ==========
+========== Vectorizing data ==========
+Training started for epoch 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:06<00:00,  3.95it/s]
+tensor(1.0907)
+Training completed for epoch 1
+Training accuracy for epoch 1: 0.409
+Validation started for epoch 1
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:04<00:00, 167.54it/s] 
+Validation completed for epoch 1
+Validation accuracy for epoch 1: 0.4
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [02:06<00:00,  3.95it/s] 
+tensor(1.0695)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.436625
+Validation started for epoch 2
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:04<00:00, 186.01it/s] 
+Validation completed for epoch 2
+Validation accuracy for epoch 2: 0.39
+Training done to avoid overfitting!
+Best validation accuracy is: 0.4
+Predictions written to results/test.out
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1> 

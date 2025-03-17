@@ -1,0 +1,85 @@
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1> python rnn.py --hidden_dim 256 --epochs 10 --train_data training.json --val_data validation.json --test_data test.json
+========== Loading data ==========
+========== Vectorizing data ==========
+Training started for epoch 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.62it/s]
+tensor(1.0682)
+Training completed for epoch 1
+Training accuracy for epoch 1: 0.419875
+Validation started for epoch 1
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 141.67it/s] 
+Validation completed for epoch 1
+Validation accuracy for epoch 1: 0.42875
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.63it/s] 
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation completed for epoch 1
+Validation accuracy for epoch 1: 0.42875
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.63it/s] 
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation accuracy for epoch 1: 0.42875
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.63it/s] 
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.63it/s] 
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:10<00:00,  2.63it/s] 
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+tensor(1.0432)
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 143.67it/s] 
+Validation completed for epoch 2
+Training accuracy for epoch 2: 0.448375
+Validation started for epoch 2
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 143.67it/s] 
+Validation completed for epoch 2
+Validation started for epoch 2
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 143.67it/s] 
+Validation completed for epoch 2
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 143.67it/s] 
+Validation completed for epoch 2
+Validation accuracy for epoch 2: 0.43625
+Validation accuracy for epoch 2: 0.43625
+Training started for epoch 3
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:11<00:00,  2.61it/s] 
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:11<00:00,  2.61it/s] 
+tensor(1.0384)
+Training completed for epoch 3
+Training accuracy for epoch 3: 0.4485
+Validation started for epoch 3
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 139.78it/s] 
+Validation completed for epoch 3
+Validation accuracy for epoch 3: 0.445
+Training started for epoch 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [03:16<00:00,  2.55it/s] 
+tensor(1.0434)
+Training completed for epoch 4
+Training accuracy for epoch 4: 0.448875
+Validation started for epoch 4
+100%|████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [00:05<00:00, 139.12it/s] 
+Validation completed for epoch 4
+Validation accuracy for epoch 4: 0.42875
+Training done to avoid overfitting!
+Best validation accuracy is: 0.445
+Predictions written to results/test.out
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1>

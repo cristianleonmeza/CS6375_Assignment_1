@@ -1,0 +1,106 @@
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1> python ffnn.py --hidden_dim 8 --epochs 10 --train_data training.json --val_data validation.json --test_data test.json
+========== Loading data ==========
+========== Vectorizing data ==========
+========== Training for 10 epochs ==========
+Training started for epoch 1
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:07<00:00, 69.96it/s]
+Training completed for epoch 1
+Training accuracy for epoch 1: 0.522
+Training time for this epoch: 7.160820722579956
+Validation started for epoch 1
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 171.10it/s] 
+Validation completed for epoch 1
+Validation accuracy for epoch 1: 0.54875
+Validation time for this epoch: 0.2947733402252197
+Training started for epoch 2
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 72.53it/s]
+Training completed for epoch 2
+Training accuracy for epoch 2: 0.565375
+Training time for this epoch: 6.903728485107422
+Validation started for epoch 2
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 185.47it/s] 
+Validation completed for epoch 2
+Validation accuracy for epoch 2: 0.5675
+Validation time for this epoch: 0.2715797424316406
+Training started for epoch 3
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 72.01it/s] 
+Training completed for epoch 3
+Training accuracy for epoch 3: 0.605375
+Training time for this epoch: 6.951317071914673
+Validation started for epoch 3
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 182.12it/s] 
+Validation completed for epoch 3
+Validation accuracy for epoch 3: 0.59625
+Validation time for this epoch: 0.27653956413269043
+Training started for epoch 4
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 72.79it/s] 
+Training completed for epoch 4
+Training accuracy for epoch 4: 0.634375
+Training time for this epoch: 6.877044200897217
+Validation started for epoch 4
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 174.91it/s] 
+Validation completed for epoch 4
+Validation accuracy for epoch 4: 0.57625
+Validation time for this epoch: 0.28786277770996094
+Training started for epoch 5
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 71.68it/s]
+Training completed for epoch 5
+Training accuracy for epoch 5: 0.638875
+Training time for this epoch: 6.984515428543091
+Validation started for epoch 5
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 180.61it/s] 
+Validation completed for epoch 5
+Validation accuracy for epoch 5: 0.57375
+Validation time for this epoch: 0.27896547317504883
+Training started for epoch 6
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 72.33it/s] 
+Training completed for epoch 6
+Training accuracy for epoch 6: 0.661125
+Training time for this epoch: 6.920932769775391
+Validation started for epoch 6
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 189.37it/s] 
+Validation completed for epoch 6
+Validation accuracy for epoch 6: 0.55125
+Validation time for this epoch: 0.26503992080688477
+Training started for epoch 7
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:06<00:00, 72.72it/s] 
+Training completed for epoch 7
+Training accuracy for epoch 7: 0.652
+Training time for this epoch: 6.883641242980957
+Validation started for epoch 7
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 179.70it/s] 
+Validation completed for epoch 7
+Validation accuracy for epoch 7: 0.52125
+Validation time for this epoch: 0.27924060821533203
+Training started for epoch 8
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:07<00:00, 71.42it/s]
+Training completed for epoch 8
+Training accuracy for epoch 8: 0.7025
+Training time for this epoch: 7.0098724365234375
+Validation started for epoch 8
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 167.71it/s] 
+Validation completed for epoch 8
+Validation accuracy for epoch 8: 0.5625
+Validation time for this epoch: 0.3002140522003174
+Training started for epoch 9
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:07<00:00, 70.76it/s]
+Training completed for epoch 9
+Training accuracy for epoch 9: 0.719125
+Training time for this epoch: 7.075199604034424
+Validation started for epoch 9
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 179.95it/s] 
+Validation completed for epoch 9
+Validation accuracy for epoch 9: 0.60375
+Validation time for this epoch: 0.28021717071533203
+Training started for epoch 10
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████| 500/500 [00:07<00:00, 70.73it/s]
+Training completed for epoch 10
+Training accuracy for epoch 10: 0.743375
+Training time for this epoch: 7.080024003982544
+Validation started for epoch 10
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:00<00:00, 179.60it/s] 
+Validation completed for epoch 10
+Validation accuracy for epoch 10: 0.5875
+Validation time for this epoch: 0.27939414978027344
+Predictions written to results/test.out
+(cs6375) PS C:\Users\cfleo\Documents\GitHub\CS6375_Assignment_1> 

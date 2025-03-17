@@ -16,6 +16,34 @@ import pickle
 unk = '<UNK>'
 # Consult the PyTorch documentation for information on the functions used below:
 # https://pytorch.org/docs/stable/torch.html
+
+def load_test_data(test_data):                              #function to load test data
+    with open(test_data, "r", encoding="utf-8") as test_f:
+        test = json.load(test_f)
+    test_data = []
+    for elt in test:
+        test_data.append((elt["text"].split(), int(elt["stars"])))  #no subtraction for test data
+    return test_data
+
+def write_predictions(model, test_data, word_embedding, output_file):   #function to write predictions to results/test.out
+    model.eval()                                                        #set the model to evaluation mode
+    predictions = []
+
+    with torch.no_grad():                   #disable gradient computation for evaluation
+        for input_words, _ in test_data:
+            input_words = " ".join(input_words)
+            input_words = input_words.translate(input_words.maketrans("", "", string.punctuation)).split()
+            vectors = [word_embedding[i.lower()] if i.lower() in word_embedding.keys() else word_embedding['unk'] for i in input_words]
+            #vectors = torch.tensor(vectors).view(len(vectors), 1, -1)
+            vectors = torch.tensor(np.array(vectors)).view(len(vectors), 1, -1)    #convert single array into a tensor, which is more efficient  
+            output = model(vectors)
+            predicted_label = torch.argmax(output).item()                       #get the predicted label
+            predictions.append(predicted_label + 1)                             #convert back to 1-5 star rating
+
+    with open(output_file, "w") as f:                               #write predictions to the output file
+        for prediction in predictions:
+            f.write(f"{prediction}\n")
+
 class RNN(nn.Module):
     def __init__(self, input_dim, h):  # Add relevant parameters
         super(RNN, self).__init__()
@@ -30,7 +58,7 @@ class RNN(nn.Module):
         return self.loss(predicted_vector, gold_label)
 
     def forward(self, inputs):
-        # [to fill] obtain hidden layer representation (https://pytorch.org/docs/stable/generated/torch.nn.RNN.html)
+        # [to fill] obtain hidden layer representation  (https://pytorch.org/docs/stable/generated/torch.nn.RNN.html)
         _, hidden = self.rnn(inputs)
         # [to fill] obtain output layer representations
         hidden = hidden[-1]
@@ -62,13 +90,13 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--epochs", type=int, required = True, help = "num of epochs to train")
     parser.add_argument("--train_data", required = True, help = "path to training data")
     parser.add_argument("--val_data", required = True, help = "path to validation data")
-    parser.add_argument("--test_data", default = "to fill", help = "path to test data")
+    parser.add_argument("--test_data", required = True, help = "path to test data")
     parser.add_argument('--do_train', action='store_true')
     args = parser.parse_args()
 
     print("========== Loading data ==========")
     train_data, valid_data = load_data(args.train_data, args.val_data) # X_data is a list of pairs (document, y); y in {0,1,2,3,4}
-
+    test_data = load_test_data(args.test_data)                          #load test data
     # Think about the type of function that an RNN describes. To apply it, you will need to convert the text data into vector representations.
     # Further, think about where the vectors will come from. There are 3 reasonable choices:
     # 1) Randomly assign the input to vectors and learn better embeddings during training; see the PyTorch documentation for guidance
@@ -79,7 +107,7 @@ if __name__ == "__main__":
     print("========== Vectorizing data ==========")
     model = RNN(50, args.hidden_dim)  # Fill in parameters
     # optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
-    optimizer = optim.Adam(model.parameters(), lr=0.01)
+    optimizer = optim.Adam(model.parameters(), lr=0.01) #default lr = 0.01
     word_embedding = pickle.load(open('./word_embedding.pkl', 'rb'))
 
     stopping_condition = False
@@ -115,7 +143,8 @@ if __name__ == "__main__":
                 vectors = [word_embedding[i.lower()] if i.lower() in word_embedding.keys() else word_embedding['unk'] for i in input_words ]
 
                 # Transform the input into required shape
-                vectors = torch.tensor(vectors).view(len(vectors), 1, -1)
+                #vectors = torch.tensor(vectors).view(len(vectors), 1, -1)
+                vectors = torch.tensor(np.array(vectors)).view(len(vectors), 1, -1) #convert single array into a tensor, which is more efficient
                 output = model(vectors)
 
                 # Get loss
@@ -137,6 +166,7 @@ if __name__ == "__main__":
             loss_count += 1
             loss.backward()
             optimizer.step()
+
         print(loss_total/loss_count)
         print("Training completed for epoch {}".format(epoch + 1))
         print("Training accuracy for epoch {}: {}".format(epoch + 1, correct / total))
@@ -156,7 +186,8 @@ if __name__ == "__main__":
             vectors = [word_embedding[i.lower()] if i.lower() in word_embedding.keys() else word_embedding['unk'] for i
                        in input_words]
 
-            vectors = torch.tensor(vectors).view(len(vectors), 1, -1)
+            #vectors = torch.tensor(vectors).view(len(vectors), 1, -1)
+            vectors = torch.tensor(np.array(vectors)).view(len(vectors), 1, -1) #convert single array into a tensor, which is more efficient
             output = model(vectors)
             predicted_label = torch.argmax(output)
             correct += int(predicted_label == gold_label)
@@ -176,7 +207,10 @@ if __name__ == "__main__":
 
         epoch += 1
 
-
+    #write out to results/test.out
+    os.makedirs("results", exist_ok=True)
+    write_predictions(model, test_data, word_embedding, "results/test.out")
+    print("Predictions written to results/test.out")
 
     # You may find it beneficial to keep track of training accuracy or training loss;
 
